@@ -1,6 +1,6 @@
 [Instruções/Instructions](https://www.frontendmentor.io/challenges/pricing-component-with-toggle-8vPwRMIC)
 
-[Resultado/Result]()
+[Resultado/Result](https://leonardoth.github.io/Pricing-component-with-toggle/)
 
 ## Brief
 
