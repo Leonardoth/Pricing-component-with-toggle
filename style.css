@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root{
+
+    --Linear-Gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+    --Font-size: 15px;
+    --Default-font-family: 'Montserrat', sans-serif;
+    --Default-font-weight: 700;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+    background-color: var(--Very-Light-Grayish-Blue);
+    font-family: var(--Default-font-family);
+    color: var(--Light-Grayish-Blue);
+    font-size: var(--Font-size);
+}
+.title{
+    width: fit-content;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: var(--Grayish-Blue);
+}
+.toggle__span{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px;
+}
+#toggle__checkbox{
+    display: none;
+}
+.toggle__label{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 30px;
+    background: linear-gradient(var(--Linear-Gradient));
+    user-select: none;
+    border-radius: 50px;
+}
+.toggle__label:hover{
+    cursor: pointer;
+    filter: brightness(120%);
+}
+.toggle__label::after{
+    position: absolute;
+    content: " ";
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50px;
+    transition: all ease 500ms;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#toggle__checkbox:checked + .toggle__label::after{
+    transform: translateX(20px) translateY(-50%);
+}
+#toggle__checkbox:checked + label + .toggle__span + .pricing .monthly{
+    display: block;
+}
+#toggle__checkbox:checked + label + .toggle__span + .pricing .annually{
+    display: none;
+}
+#toggle__checkbox:not(:checked) + label + .toggle__span + .pricing .monthly{
+    display: none;
+}
+
+#toggle__checkbox:not(:checked) + label + .toggle__span + .pricing .annually{
+    display: block;
+}
+
+
+.pricing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:300px;
+    margin: auto;
+    margin-top: 50px;
+}
+.plan{
+    --background: white;
+    --color: var(--Dark-Grayish-Blue);
+    --button-background:linear-gradient(var(--Linear-Gradient));
+    --button-color: white;
+    --default-purple: hsl(237, 63%, 64%);
+
+
+    position: relative;
+    margin-top: 20px;
+    width: 90%;
+    padding: 20px;
+    background: var(--background);
+    color: var(--color);
+    border-radius: 8px;
+}
+.plan.center{
+    --background: linear-gradient(var(--Linear-Gradient));
+    --color: white;
+    --button-background:white;
+    --button-color: hsl(237, 63%, 64%);
+}
+.plan__title{
+    display:block;
+    margin-bottom: 20px;
+}
+
+.plan__span{
+    position: relative;
+    display:block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.monthly,
+.annually{
+    font-size: 68px;
+    padding-bottom: 10px;
+}
+.dollar_sign{
+    vertical-align: middle;
+    font-size: 38px;
+}
+
+.plan__span:after{
+    position: absolute;
+    content: ' ';
+    width: 95%;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background-color: var(--Light-Grayish-Blue);
+    opacity: 0.85;
+}
+
+.plan__button{
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    height: 45px;
+    width: 95%;
+    box-sizing: border-box;
+    background: var(--button-background);
+    color: var(--button-color);
+    font-weight: var(--Default-font-weight);
+    border:2px transparent;
+    border-radius: 5px;
+}
+
+
+.plan__button:hover{
+    cursor: pointer;
+    filter: brightness(120%);
+    background: rgba(0,0,0,0);
+    color: var(--button-background);
+    border: 2px solid var(--button-background);
+}
+.plan__button:not(.purple):hover{
+    color: var(--default-purple);
+    border: 2px solid var(--default-purple);
+    filter: var(--Linear-Gradient);
+}
+
+.attribution{
+    margin-top: 20px;
+}
+@media (min-width: 1000px){
+    .title{
+        margin-top: 40px;
+    }
+    .pricing{
+        width: auto;
+        margin: auto;
+        margin-top: 25px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .plan {
+        width: 250px;
+    }
+    .plan.center{
+        height: 350px;
+    }
+    .center .plan__title{
+        margin-top: 12px;
+    }
+    .monthly,
+    .annually{
+        font-size: 62px;
+    }
+    .dollar_sign{
+        font-size: 28px;
+    }
+
+
+}
